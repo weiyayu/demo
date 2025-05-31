@@ -1,4 +1,33 @@
-abc
+# 用于存储学生成绩的字典
+student_scores = {}
 
-chang
-I created a remote repository.
+while True:
+    print("请选择操作：")
+    print("1. 记录学生成绩")
+    print("2. 查询学生成绩")
+    print("3. 退出")
+    choice = input("请输入选项(1/2/3)：")
+
+    if choice == "1":
+        name = input("请输入学生姓名：")
+        score = input("请输入学生成绩：")
+        try:
+            score = float(score)
+            student_scores[name] = score
+            print(f"已成功记录 {name} 的成绩：{score}")
+        except ValueError:
+            print("成绩输入无效，请输入有效的数字成绩。")
+
+    elif choice == "2":
+        name = input("请输入要查询成绩的学生姓名：")
+        if name in student_scores:
+            print(f"{name} 的成绩是：{student_scores[name]}")
+        else:
+            print(f"未找到 {name} 的成绩记录。")
+
+    elif choice == "3":
+        print("感谢使用，程序已退出。")
+        break
+
+    else:
+        print("无效的选项，请重新输入。")
